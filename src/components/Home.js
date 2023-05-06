@@ -1,21 +1,20 @@
+
 import React from 'react'
 
-function Home()
+function Home(props)
 {
+    console.warn("Home",props)
+
     return (
         <div>
-
-            <div className='add-to-cart'>
-                 <img src="https://static.vecteezy.com/system/resources/thumbnails/000/496/007/small/Ecommerce_998.jpg" />
-            </div>
-
+            
             <h1>Home components</h1> 
              <div className='cart-wrapper'>
              <div className='img-wrapper item'>
                 <img src="https://www.91-img.com/pictures/152621-v1-nothing-phone-2-mobile-phone-large-1.jpg?tr=q-80" />
              </div>
 
-             <div className='img-wrapper item'>
+             <div className='text-wrapper item'>
                 <span>
                     I-Phone
                 </span>
@@ -25,7 +24,16 @@ function Home()
              </div>
 
              <div className='btn-wrapper item'>
-                <button>Add to cart</button>
+                <button 
+                onClick={()=>{props.addToCartHandler({price:1000,name:'i phone 11'})}
+                }> 
+                Add to cart </button>
+
+                <button className='remove-cart-btn'
+                onClick={()=>{props.removeToCartHandler()}
+
+                }> Remove to cart </button>
+
              </div>
 
              </div>
